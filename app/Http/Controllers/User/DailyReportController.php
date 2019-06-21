@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class DailyReportController extends Controller
 {
+
     protected $dailyReport;
 
     public function __construct(DailyReport $dailyReport)
@@ -24,9 +25,8 @@ class DailyReportController extends Controller
     public function index()
     {
         $dailyReports = $this->dailyReport->all();
-        $dailyReports = compact('dailyReports');
-        // var_dump($dailyReports);
-        return view('user.daily_report.index' , $dailyReports);
+
+        return view('user.daily_report.index', compact('dailyReports'));
     }
 
     /**
