@@ -21,16 +21,17 @@
         </tr>
       </thead>
       <tbody>
+        @foreach ($dailyReports as $dailyReport)
           <tr class="row">
-            <td class="col-xs-2"></td>
-            <td class="col-xs-3"></td>
-            <td class="col-xs-5"></td>
+            <td class="col-xs-2">{{ $dailyReport->reporting_time }}</td>
+            <td class="col-xs-3">{{ $dailyReport->title }}</td>
+            <td class="col-xs-5">{{ $dailyReport->content }}</td>
             <td class="col-xs-2"><a class="btn" href=""><i class="fa fa-book"></i></a></td>
           </tr>
+        @endforeach
       </tbody>
     </table>
   </div>
 </div>
 
 @endsection
-
