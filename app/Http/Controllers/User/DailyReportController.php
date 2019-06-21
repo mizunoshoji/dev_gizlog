@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-//関係するModelの参照
 use App\Models\DailyReport;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DailyReportController extends Controller
 {
@@ -14,6 +14,7 @@ class DailyReportController extends Controller
 
     public function __construct(DailyReport $dailyReport)
     {
+        $this->middleware('auth');
         $this->dailyReport = $dailyReport;
     }
 
@@ -47,7 +48,11 @@ class DailyReportController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $inputs = $request->all();
+        $this->dailyReport->user_id = Auth::id();
+        $this->dailyReport->fill($inputs)->save();
+
+        return redirect()->route('dailyreport.index');
     }
 
     /**
