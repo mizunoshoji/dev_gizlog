@@ -51,7 +51,6 @@ class DailyReportController extends Controller
         $inputs = $request->all();
         $this->dailyReport->user_id = Auth::id();
         $this->dailyReport->fill($inputs)->save();
-
         return redirect()->route('dailyreport.index');
     }
 
@@ -63,7 +62,8 @@ class DailyReportController extends Controller
      */
     public function show($id)
     {
-        //
+        $dailyReport = $this->dailyReport->find($id);
+        return view('user.daily_report.show', compact('dailyReport'));
     }
 
     /**
