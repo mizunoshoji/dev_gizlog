@@ -11,10 +11,21 @@
       </div>
       <div class="form-group">
         {!! Form::input('text','title', null, ['class' => 'form-control', 'placeholder' => 'title']) !!}
+        @if ($errors->any())
+            @foreach ($errors->get('title') as $message)
+                <p>{{ $message }}</p>
+            @endforeach
+        @endif
         <span class="help-block"></span>
       </div>
       <div class="form-group">
         {!! Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => 'Contents']) !!}
+        @if ($errors->any())
+            @foreach ($errors->get('content') as $message)
+                <p>{{ $message }}</p>
+            @endforeach
+        @endif
+
         <span class="help-block"></span>
       </div>
       {!! Form::submit('add', ['class' => 'btn btn-success pull-right']) !!}
