@@ -21,4 +21,9 @@ class DailyReport extends Model
         'updated_at',
         'deleted_at',
     ];
+
+    function fetchSearchingDailyReport($inputs)
+    {
+        return $this->where('reporting_time', $inputs['search-date'])->orderBy('created_at', 'desc')->get();
+    }
 }

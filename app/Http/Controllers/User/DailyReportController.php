@@ -25,9 +25,15 @@ class DailyReportController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $dailyReports = $this->dailyReport->all();
+        $inputs = $request->all();
+
+        if(isset($inputs['search-date'])) {
+            $dailyReports = $this->dailyReport->fetchSearchingDailyReport($inputs);
+        } else {
+            $dailyReports = $this->dailyReport->orderBy('created_at', 'desc')->get();
+        }
 
         return view('user.daily_report.index', compact('dailyReports'));
     }
