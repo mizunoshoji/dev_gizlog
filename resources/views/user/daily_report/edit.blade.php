@@ -7,7 +7,7 @@
     {!! Form::open(['route' => ['dailyreport.update', $dailyReport->id], 'method' => 'put']) !!}
       <input class="form-control" name="user_id" type="hidden" value="4">
       <div class="form-group form-size-small">
-        {!! Form::input('data', 'reporting_time', $dailyReport->reporting_time, ['class' => 'form-control']) !!}
+        {!! Form::input('date', 'reporting_time', $dailyReport->reporting_time, ['class' => 'form-control']) !!}
       <span class="help-block"></span>
       </div>
       <div class="form-group">
