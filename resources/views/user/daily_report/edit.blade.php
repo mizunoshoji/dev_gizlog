@@ -12,10 +12,20 @@
       </div>
       <div class="form-group">
         {!! Form::input('text', 'title', $dailyReport->title, ['class' => 'form-control']) !!}
+        @if ($errors->any())
+            @foreach ($errors->get('title') as $message)
+                <p>{{ $message }}</p>
+            @endforeach
+        @endif
       <span class="help-block"></span>
       </div>
       <div class="form-group">
         {!! Form::textarea('content', $dailyReport->content, ['class' => 'form-control']) !!}
+        @if ($errors->any())
+            @foreach ($errors->get('content') as $message)
+                <p>{{ $message }}</p>
+            @endforeach
+        @endif
       <span class="help-block"></span>
       </div>
       <button type="submit" class="btn btn-success pull-right">Update</button>
