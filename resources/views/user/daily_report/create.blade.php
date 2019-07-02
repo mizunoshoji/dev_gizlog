@@ -10,19 +10,26 @@
         <span class="help-block"></span>
       </div>
       <div class="form-group">
-        {!! Form::input('text','title', null, ['class' => 'form-control', 'placeholder' => 'title']) !!}
+        {!! Form::input('text','title', null, ['class' => 'form-control demanded', 'placeholder' => 'title']) !!}
         @if ($errors->any())
             @foreach ($errors->get('title') as $message)
-                <p>{{ $message }}</p>
+                <p class="validate-error-msg">{{ $message }}</p>
             @endforeach
         @endif
         <span class="help-block"></span>
       </div>
       <div class="form-group">
-        {!! Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => 'Contents']) !!}
+        {!! Form::textarea('content', null, ['class' => 'form-control demanded', 'placeholder' => 'Contents']) !!}
         @if ($errors->any())
+            <script>
+              var required = document.getElementsByClassName('demanded');
+              var required = Array.from(required);
+              required.forEach(function(required) {
+                  required.setAttribute('class', 'form-control required-data');
+              });
+            </script>
             @foreach ($errors->get('content') as $message)
-                <p>{{ $message }}</p>
+                <p class="validate-error-msg">{{ $message }}</p>
             @endforeach
         @endif
 

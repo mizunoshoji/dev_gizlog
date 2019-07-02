@@ -3828,6 +3828,16 @@ select[multiple].input-lg,
   color: #a94442;
 }
 
+.validate-error-msg {
+  margin-top: 5px;
+  font-size: 12px;
+  color: #a94442;
+}
+
+.required-data {
+  border-color: #a94442;
+}
+
 .has-feedback label ~ .form-control-feedback {
   top: 27px;
 }
@@ -8349,4 +8359,3 @@ button.close {
     display: none !important;
   }
 }
-
