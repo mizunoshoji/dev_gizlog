@@ -13,7 +13,7 @@ class AdminUsersTableSeeder extends Seeder
                 'password'     => bcrypt('gizumo0515'),
                 'user_info_id' => 2,
                 'privileges'   => 1,
-            ],
+            ]
         ]);
     }
 }
